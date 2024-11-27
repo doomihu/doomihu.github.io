@@ -11,7 +11,7 @@
 
         window.onload = function() {
             if (isAndroid()) {
-                document.getElementById("redirectMessage").innerHTML = "Az értékelés gombra kattintva kérjük értékeljen minket";
+                document.getElementById("redirectMessage").innerHTML = "Az értékelés gombra kattintva kérjük értékelj minket.";
                 var image = document.createElement("img");
                 image.src = "ertekeles.png";
                 image.alt = "Értékelés";
@@ -20,11 +20,11 @@
                 document.body.appendChild(image);
                 setTimeout(function() {
                     window.location.href = "fb://page/101722422325440/reviews";
-                }, 5000); 
+                }, 3000); 
             } else {
                 setTimeout(function() {
                     window.location.href = "https://www.facebook.com/doomitrend/reviews?_rdr";
-                }, 5000);
+                }, 1000);
                 document.getElementById("non-android").style.display = "block";
             }
         };
