@@ -12,12 +12,14 @@
         window.onload = function() {
             if (isAndroid()) {
                 document.getElementById("redirectMessage").innerHTML = "Az értékelés gombra kattintva kérjük értékeljen minket";
-                
                 setTimeout(function() {
                     window.location.href = "fb://page/101722422325440";
                 }, 5000); 
             } else {
-                window.location.href = "https://www.facebook.com/doomitrend/reviews?_rdr";
+                setTimeout(function() {
+                    window.location.href = "https://www.facebook.com/doomitrend/reviews?_rdr";
+                }, 5000);
+                document.getElementById("non-android").style.display = "block";
             }
         };
     </script>
@@ -26,6 +28,7 @@
             height: 100%;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0; 
@@ -39,26 +42,21 @@
 
         #redirectMessage {
             font-size: 18px;
-            margin-top: 20px;
+            margin-top: 55px;
             color: #333;
         }
 
         .non-android {
             display: none;
+            font-size: 18px;
+            margin-top: 55px;
+            color: #333;
         }
     </style>
 </head>
 <body>
     <img src="https://doomi.hu/!common_design/custom/doomi.unas.hu/element/layout_hu_header_logo-260x60_1_default.png" alt="Centered Logo">
-
     <div id="redirectMessage"></div>
-
-    <p id="non-android" class="non-android">If you are not redirected, click <a href="https://www.link2.com">here</a>.</p>
-
-    <script type="text/javascript">
-        if (!isAndroid()) {
-            document.getElementById("non-android").style.display = "block";
-        }
-    </script>
+    <p id="non-android" class="non-android">Ha nem irányítana tovább az oldal kérlek kattints <a href="https://www.facebook.com/doomitrend/reviews?_rdr">ide</a>.</p>
 </body>
 </html>
