@@ -11,33 +11,54 @@
 
         window.onload = function() {
             if (isAndroid()) {
-                //https://www.facebook.com/101722422325440/reviews
-                //fb://page/101722422325440/reviews
-                window.location.href = "https://www.facebook.com/101722422325440/reviews";
+                document.getElementById("redirectMessage").innerHTML = "Az értékelés gombra kattintva kérjük értékeljen minket";
+                
+                setTimeout(function() {
+                    window.location.href = "fb://page/101722422325440";
+                }, 5000); 
             } else {
                 window.location.href = "https://www.facebook.com/doomitrend/reviews?_rdr";
             }
         };
     </script>
-      <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f0f0f0; 
-    }
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; 
+            text-align: center;
+        }
 
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-  </style>
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #redirectMessage {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .non-android {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-      <img src="https://doomi.hu/!common_design/custom/doomi.unas.hu/element/layout_hu_header_logo-260x60_1_default.png" alt="Centered Logo">
+    <img src="https://doomi.hu/!common_design/custom/doomi.unas.hu/element/layout_hu_header_logo-260x60_1_default.png" alt="Centered Logo">
 
-    <p>If you are not redirected, click <a href="https://www.link2.com">here</a>.</p>
+    <div id="redirectMessage"></div>
+
+    <p id="non-android" class="non-android">If you are not redirected, click <a href="https://www.link2.com">here</a>.</p>
+
+    <script type="text/javascript">
+        if (!isAndroid()) {
+            document.getElementById("non-android").style.display = "block";
+        }
+    </script>
 </body>
 </html>
